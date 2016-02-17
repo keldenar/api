@@ -18,15 +18,13 @@ class ApiService {
     }
 
     public function post($service, $endpoint, $payload) {
-        dump($payload);
         $this->client->setBaseUrl($this->app['config']->get("apis.". $service . ".url"));
         $request = $this->client->post($endpoint, ['content-type' => 'application/json'] ,$payload);
         $request->addHeader('Authorization', 'Bearer ' . $this->app['oauth2']->token());
         try {
             $response = $request->send();
         } catch (\Exception $e) {
-            dump("Something had happened");
-            dump($e);
+            $response = new Response($e->getCode(), [], $e->getMessage());
         }
         return $response;
     }
@@ -50,8 +48,7 @@ class ApiService {
         try {
             $response = $request->send();
         } catch (\Exception $e) {
-            dump("Something had happened");
-            dump($e);
+            $response = new Response($e->getCode(), [], $e->getMessage());
         }
         return $response;
     }
