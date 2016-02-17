@@ -20,7 +20,7 @@ class ApiService {
     public function post($service, $endpoint, $payload) {
         dump($payload);
         $this->client->setBaseUrl($this->app['config']->get("apis.". $service . ".url"));
-        $request = $this->client->post($endpoint, ['content-type' => 'application/json'] ,array($payload));
+        $request = $this->client->post($endpoint, ['content-type' => 'application/json'] ,$payload);
         $request->addHeader('Authorization', 'Bearer ' . $this->app['oauth2']->token());
         try {
             $response = $request->send();
