@@ -22,7 +22,6 @@ class ApiService {
         $this->client->setBaseUrl($this->app['config']->get("apis.". $service . ".url"));
         $request = $this->client->post($endpoint, ['content-type' => 'application/json'] ,array($payload));
         $request->addHeader('Authorization', 'Bearer ' . $this->app['oauth2']->token());
-        dump($request);
         try {
             $response = $request->send();
         } catch (\Exception $e) {
@@ -48,7 +47,6 @@ class ApiService {
         }
         $request = $this->client->get($endpoint);
         $request->addHeader('Authorization', 'Bearer ' . $this->app['oauth2']->token());
-        dump($request);
         try {
             $response = $request->send();
         } catch (\Exception $e) {
