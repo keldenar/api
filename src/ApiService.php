@@ -43,7 +43,7 @@ class ApiService {
                 $new = ltrim($new, "&");
                 $endpoint = sprintf("%s?%s", $endpoint, $new);
             }  else {
-                $endpoint = sprintf("%s?%s", $endpoint, $payload);
+                $endpoint = sprintf("%s/%s", $endpoint, $payload);
             }
         }
         $request = $this->client->get($endpoint);
