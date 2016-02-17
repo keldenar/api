@@ -5,6 +5,7 @@ namespace Ephemeral;
 use Guzzle\Http\Client;
 use Guzzle\Http\Exception\ClientErrorResponseException;
 use Guzzle\Http\Message\RequestInterface;
+use Guzzle\Http\Message\Response;
 
 
 
