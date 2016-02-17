@@ -1,10 +1,11 @@
 <?php
 
 namespace Ephemeral;
+
 use Guzzle\Http\Client;
 use Guzzle\Http\Exception\ClientErrorResponseException;
 use Guzzle\Http\Message\RequestInterface;
-use Mockery\CountValidator\Exception;
+
 
 
 class ApiService {
@@ -24,7 +25,7 @@ class ApiService {
         dump($request);
         try {
             $response = $request->send();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             dump("Something had happened");
             dump($e);
         }

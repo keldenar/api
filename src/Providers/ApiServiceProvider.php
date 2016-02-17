@@ -2,7 +2,7 @@
 
 namespace Ephemeral\Providers;
 
-use App\Services\ApiService;
+use Ephemeral\ApiService;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
