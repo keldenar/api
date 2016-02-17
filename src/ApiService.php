@@ -25,7 +25,7 @@ class ApiService {
         try {
             $response = $request->send();
         } catch (\Exception $e) {
-            $response = new Response($e->getCode(), [], $e->getMessage());
+            $response = new Response($e->getResponse()->getStatusCode(), [], $e->getResponse()->getMessage());
         }
         return $response;
     }
@@ -49,7 +49,7 @@ class ApiService {
         try {
             $response = $request->send();
         } catch (\Exception $e) {
-            $response = new Response($e->getCode(), [], $e->getMessage());
+            $response = new Response($e->getResponse()->getStatusCode(), [], $e->getResponse()->getMessage());
         }
         return $response;
     }
