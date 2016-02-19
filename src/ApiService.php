@@ -30,7 +30,7 @@ class ApiService {
         return $response;
     }
 
-    public function get($service, $endpoint, $payload) {
+    public function get($service, $endpoint, $payload = null) {
         $this->client->setBaseUrl($this->app['config']->get("apis.". $service . ".url"));
         if ($payload != null) {
             if (is_array($payload)) {
